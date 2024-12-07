@@ -1,20 +1,13 @@
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleButtons = document.querySelectorAll(".toggle-button");
+    const groupHeaders = document.querySelectorAll(".group-header");
 
-    toggleButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const group = button.closest(".group");
-            const products = group.querySelector(".products");
-
+    groupHeaders.forEach(header => {
+        header.addEventListener("click", () => {
+            const products = header.nextElementSibling;
             if (products.classList.contains("hidden")) {
                 products.classList.remove("hidden");
-                group.classList.remove("collapsed");
-                button.textContent = "▲";
             } else {
                 products.classList.add("hidden");
-                group.classList.add("collapsed");
-                button.textContent = "▼";
             }
         });
     });
